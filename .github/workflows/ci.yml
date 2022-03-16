@@ -22,4 +22,4 @@ jobs:
         verbose: true
         flags: unittest
         fail_ci_if_error: true
-        # token: ${{ secrets.CODECOV_TOKEN }}
+        token: ${{ secrets.CODECOV_TOKEN }}
