@@ -1,0 +1,25 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      name: Check out code into Go module directory
+    - uses: actions/setup-go@v2
+      name: Set up Go 1.x
+      with:
+        go-version: "^1.18"
+    - name: Run Unittest Cases
+      run: go test -race -covermode=atomic -v -coverprofile=coverage.txt ./...
+    - name: Run Benchmark Cases
+      run: go test -bench=. -run=^Benchmark ./...
+    - name: Code Coverage Report
+      uses: codecov/codecov-action@v2
+      with:
+        files: coverage.txt
+        verbose: true
+        flags: unittest
+        fail_ci_if_error: true
+        # token: ${{ secrets.CODECOV_TOKEN }}
