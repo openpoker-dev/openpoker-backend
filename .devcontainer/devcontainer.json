@@ -6,7 +6,7 @@
 			// Update the VARIANT arg to pick a version of Go: 1, 1.16, 1.17
 			// Append -bullseye or -buster to pin to an OS version.
 			// Use -bullseye variants on local arm64/Apple Silicon.
-			"VARIANT": "1.17-bullseye",
+			"VARIANT": "1.18-bullseye",
 			// Options
 			"NODE_VERSION": "none"
 		}
@@ -18,7 +18,6 @@
 		"go.toolsManagement.checkForUpdates": "local",
 		"go.useLanguageServer": true,
 		"go.gopath": "/go",
-		"go.goroot": "/usr/local/go",
         "terminal.integrated.defaultProfile.linux": "zsh",
 		"terminal.integrated.defaultProfile.osx": "zsh",
 		"terminal.integrated.defaultProfile.windows": "zsh",
