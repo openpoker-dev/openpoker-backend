@@ -7,7 +7,7 @@ RUN set -e \
 
 FROM debian:bullseye
 WORKDIR /opt/openpoker
-COPY --from=builder /go/src/openpoker-backend
+COPY --from=builder /go/src/openpoker-backend .
 RUN set -e \
     && apt update -yqq \
     && apt install -yqq ca-certificates \
