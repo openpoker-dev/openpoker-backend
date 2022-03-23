@@ -3,7 +3,7 @@ WORKDIR /go/src
 COPY . /go/src
 RUN set -e \
     && go mod download \
-    && go build -ldflags "-X main.version=$REVISION" -o openpoker-backend cmd/main.go
+    && go build -o openpoker-backend cmd/main.go
 
 FROM debian:bullseye
 WORKDIR /opt/openpoker
