@@ -12,8 +12,9 @@ jobs:
       with:
         images: ghcr.io/openpoker-dev/openpoker-backend
         tags:  |
-          type=sha,prefix={{branch}}-
-          type=sha,prefix={{tag}}-
+          type=ref,enable=true,suffix=-{{sha}},event=tag
+          type=ref,enable=true,suffix=-{{sha}},event=branch
+          type=ref,enable=true,suffix=-{{sha}},event=pr
     - name: Login to Docker Registry Server
       uses: docker/login-action@v1
       with:
